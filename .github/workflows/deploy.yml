@@ -173,6 +173,7 @@ jobs:
           # 直接下载 release 中的 dist.zip（已构建好）
           curl -L "https://github.com/${{ env.FRONTEND_REPO }}/releases/download/${VERSION}/dist.zip" -o dist.zip
           unzip dist.zip -d frontend-dist
+          echo "/* /index.html 200" > frontend-dist/dist/_redirects
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
