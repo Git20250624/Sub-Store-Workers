@@ -34,7 +34,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: latest
+          version: 11.11.0
 
       - name: Fetch Sub-Store source
         env:
@@ -43,6 +43,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Run transform regression tests
+        run: pnpm run test:substore-transform
 
       - name: Install backend dependencies
         run: pnpm run install:backend
